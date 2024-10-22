@@ -33,6 +33,14 @@ def dijkstra(graph, source)
     distances
   end
   
+  # Check if a graph is perfect (simple check)
+def is_perfect_graph?(graph)
+    graph.each_key do |node|
+      visited = Set.new
+      return false if has_cycle?(graph, node, visited, nil)
+    end
+    true
+  end
   # Example graph representation
   graph = {
     'A' => { 'B' => 1, 'C' => 4 },
