@@ -41,6 +41,15 @@ def is_perfect_graph?(graph)
     end
     true
   end
+
+  def has_cycle?(graph, node, visited, parent)
+    visited.add(node)
+    graph[node].each_key do |neighbor|
+      next if neighbor == parent
+      return true if visited.include?(neighbor) || has_cycle?(graph, neighbor, visited, node)
+    end
+    false
+  end
   # Example graph representation
   graph = {
     'A' => { 'B' => 1, 'C' => 4 },
@@ -49,6 +58,13 @@ def is_perfect_graph?(graph)
     'D' => { 'B' => 5, 'C' => 1 }
   }
   
+  # Perfect graph example (a simple tree, which is perfect by definition)
+perfect_graph = {
+    'A' => { 'B' => 1 },
+    'B' => { 'A' => 1, 'C' => 2, 'D' => 3 },
+    'C' => { 'B' => 2 },
+    'D' => { 'B' => 3 }
+  }
   source = 'A'
   distances = dijkstra(graph, source)
   puts "Shortest distances from source #{source}:"
