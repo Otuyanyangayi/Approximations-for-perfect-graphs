@@ -60,7 +60,7 @@ perfect_graph = {
   'D' => { 'B' => 3 }
 }
 
-source = 'A'
+source = 'B'
 
 # Compare Dijkstra's performance on general vs. perfect graph
 Benchmark.bm do |x|
