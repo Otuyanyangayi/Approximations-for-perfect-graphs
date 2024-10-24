@@ -109,8 +109,4 @@ This project is intended for educational purposes. Please feel free to use or mo
 
 ---
 
-### Additional Notes:
-
-- Be sure to test the algorithm on larger graphs for more meaningful performance data.
-- Consider extending the perfect graph detection with more advanced algorithms, depending on the scope of your project.
 
